@@ -2,99 +2,72 @@ import streamlit as st
 import requests
 import pandas as pd
 import folium
-from folium.plugins import HeatMap
 import streamlit.components.v1 as components
 from geopy.geocoders import Nominatim
 
 st.set_page_config(page_title="Dental Intel Pro", page_icon="🦷", layout="wide")
 
-# Custom CSS for Mobile Responsive UI
+# CSS Fix for Dark Mode Visibility & Table Styling
 st.markdown("""
     <style>
-    .stMetric { background: #f8f9fa; padding: 15px; border-radius: 10px; border: 1px solid #dee2e6; }
-    .table-responsive { overflow-x: auto; }
-    .gap-metric { color: #28a745; font-weight: bold; }
+    /* Force high contrast for metrics and text */
+    [data-testid="stMetricValue"] { color: #28a745 !important; font-weight: bold; }
+    [data-testid="stMetricLabel"] { color: #555 !important; font-size: 1.1rem; }
+    .main { background-color: transparent; }
+    
+    /* Custom Table Styling for Dark Mode */
+    table { width: 100%; border-collapse: collapse; color: inherit; }
+    th { background-color: #f1f3f5; color: #333; text-align: left; padding: 10px; }
+    td { padding: 10px; border-bottom: 1px solid #dee2e6; }
+    tr:nth-child(even) { background-color: rgba(127,127,127,0.1); }
     </style>
 """, unsafe_allow_html=True)
 
-# --- CACHING LOGIC ---
+# --- Logic ---
 @st.cache_data
 def get_market_data(zip_code):
     url = f"https://npiregistry.cms.hhs.gov/api/?version=2.1&taxonomy_description=Dentist&postal_code={zip_code}&limit=100"
     try:
-        res = requests.get(url).json()
-        providers = res.get('results', [])
-        return providers
-    except:
-        return []
+        return requests.get(url).json().get('results', [])
+    except: return []
 
 @st.cache_data
 def get_coords(zip_code):
-    geolocator = Nominatim(user_agent="dental_intel_pro")
-    location = geolocator.geocode(f"{zip_code}, USA")
-    if location:
-        return [location.latitude, location.longitude]
-    return [25.8195, -80.3553] # Default to Doral
+    try:
+        loc = Nominatim(user_agent="roi_intel").geocode(f"{zip_code}, USA")
+        return [loc.latitude, loc.longitude] if loc else [25.8195, -80.3553]
+    except: return [25.8195, -80.3553]
 
-# --- SIDEBAR ---
-st.sidebar.title("🦷 ROI Intel v2.0")
-target_zip = st.sidebar.text_input("📍 Target ZIP Code", value="33178")
-st.sidebar.markdown("---")
-st.sidebar.header("💰 Financial Audit")
+# --- UI ---
+st.title("🦷 ROI Intel Pro v2.1")
+target_zip = st.sidebar.text_input("📍 Target ZIP", value="33178")
 revenue = st.sidebar.number_input("Annual Revenue ($)", value=2000000)
 ebitda_val = st.sidebar.number_input("Current EBITDA ($)", value=525000)
 practice_type = st.sidebar.selectbox("Market Category", ["solo_gp", "small_group", "specialty"])
 
-# --- MAIN ENGINE ---
-tab1, tab2, tab3 = st.tabs(["📊 Arbitrage Engine", "🗺️ Density Map", "📋 Acquisition List"])
-
-providers = get_market_data(target_zip)
-coords = get_coords(target_zip)
+tab1, tab2 = st.tabs(["📊 Arbitrage Engine", "🗺️ Market Map"])
 
 with tab1:
-    st.header(f"Valuation Audit: {target_zip}")
-    # Call our Backend API
     payload = {"net_income": ebitda_val, "interest": 0, "taxes": 0, "depreciation": 0, "add_backs": 0, "practice_type": practice_type}
     try:
-        api_res = requests.post("http://127.0.0.1:8000/api/v1/valuate", json=payload).json()
-        val = api_res['valuation_range']['typical_value']
-        exit_val = ebitda_val * 12.0 # 2026 Platform Multiple
+        res = requests.post("http://127.0.0.1:8000/api/v1/valuate", json=payload).json()
+        val = res['valuation_range']['typical_value']
+        exit_val = ebitda_val * 12.0
         
         c1, c2, c3 = st.columns(3)
-        c1.metric("Current Multiple", "4.6x (Typical)")
-        c2.metric("Market Valuation", f"${val:,.0f}")
-        c3.metric("DSO Exit Potential", f"${exit_val:,.0f}", delta=f"${exit_val - val:,.0f} ARBITRAGE")
-        
-        st.success(f"💡 This practice has a **${exit_val - val:,.0f}** Arbitrage Gap. Consolidating this into a DSO platform instantly unlocks this value.")
-    except:
-        st.warning("Connect Backend API to see valuation data.")
+        c1.metric("Current Value", f"${val:,.0f}")
+        c2.metric("DSO Exit Potential", f"${exit_val:,.0f}")
+        c3.metric("Arbitrage Gap", f"${exit_val - val:,.0f}")
+        st.success(f"Market analysis for {target_zip} complete.")
+    except: st.error("Backend offline.")
 
 with tab2:
-    st.header(f"Heatmap: {target_zip} Density")
-    m = folium.Map(location=coords, zoom_start=13, tiles='CartoDB positron')
+    providers = get_market_data(target_zip)
+    coords = get_coords(target_zip)
+    m = folium.Map(location=coords, zoom_start=13)
+    components.html(m._repr_html_(), height=400)
     
-    # Generate Heatmap based on dentist counts
-    heat_data = [[coords[0], coords[1], 1] for _ in range(len(providers))]
-    HeatMap(heat_data, radius=25).add_to(m)
-    folium.Marker(coords, popup="Target Center", icon=folium.Icon(color='red', icon='info-sign')).add_to(m)
-    
-    components.html(m._repr_html_(), height=500)
-    st.caption(f"Brighter areas indicate higher dentist density in ZIP {target_zip}.")
+    # Render table as HTML for dark mode compatibility
+    p_df = pd.DataFrame([{"Name": f"{p['basic'].get('first_name','')} {p['basic'].get('last_name','')}", "Credential": p['basic'].get('credential','DDS')} for p in providers])
+    st.markdown(p_df.to_html(index=False), unsafe_allow_html=True)
 
-with tab3:
-    st.header("Potential Acquisition Targets")
-    if providers:
-        p_data = []
-        for p in providers:
-            p_data.append({
-                "Name": f"{p['basic'].get('first_name', '')} {p['basic'].get('last_name', '')}",
-                "Credential": p['basic'].get('credential', 'DDS/DMD'),
-                "Gender": p['basic'].get('gender', 'U'),
-                "Address": p['addresses'][0].get('address_1', 'N/A')
-            })
-        st.markdown(pd.DataFrame(p_data).to_html(index=False, classes='table table-striped'), unsafe_allow_html=True)
-    else:
-        st.write("No providers found in this ZIP.")
-
-st.markdown("---")
-st.caption("Dental Market Intelligence v2.0 | DrCiroSmith Edition")
