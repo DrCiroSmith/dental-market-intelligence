@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.brv/
+.env
+data/raw/real_market_data.csv
