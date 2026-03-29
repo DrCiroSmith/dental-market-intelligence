@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: hsl(225, 25%, 9%);
+  --bg-panel: hsla(225, 25%, 15%, 0.6);
+  --bg-panel-hover: hsla(225, 25%, 20%, 0.8);
+  --primary: hsl(150, 80%, 40%);
+  /* Green theme for Intel/Finance */
+  --primary-glow: hsla(150, 80%, 40%, 0.4);
+  --accent: hsl(190, 90%, 55%);
+  --text-main: hsl(0, 0%, 95%);
+  --text-muted: hsl(225, 15%, 65%);
+  --border: hsla(0, 0%, 100%, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 15% 50%, hsla(150, 80%, 40%, 0.15), transparent 25%),
+    radial-gradient(circle at 85% 30%, hsla(190, 90%, 55%, 0.15), transparent 25%);
+  background-attachment: fixed;
+}
+
+.title-bar {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title-bar h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: -1px;
+}
+
+.app-container {
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem 2rem 2rem;
+}
+
+.sidebar {
+  flex: 1;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2rem;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: fit-content;
+}
+
+.sidebar h3 {
+  font-family: 'Outfit', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-block label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.input-block input,
+.input-block select {
+  background: hsla(0, 0%, 0%, 0.2);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+.main-content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.card-title {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-value {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.card-value.accent {
+  color: var(--accent);
+}
+
+.providers-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.providers-table th {
+  text-align: left;
+  padding: 1rem;
+  background: hsla(0, 0%, 100%, 0.05);
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.providers-table td {
+  padding: 1rem;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.05);
+}
+
+.btn {
+  background: linear-gradient(135deg, var(--primary), hsl(150, 90%, 35%));
+  color: var(--bg-dark);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  border: none;
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px var(--primary-glow);
+  font-size: 1rem;
+}
+
+.btn:hover {
+  filter: brightness(1.2);
+}
