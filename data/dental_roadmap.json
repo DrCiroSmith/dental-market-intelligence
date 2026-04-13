@@ -1,0 +1,344 @@
+{
+    "project": "Dental Licensure Roadmap",
+    "owner": "Dr. Roi Castrellon",
+    "entity": "Naeto Services Corp",
+    "startingPoint": "ECE credential evaluation completed — 3.43 GPA approved",
+    "targetOutcome": "Boston University Advanced Standing DMD (Fall 2029)",
+    "lastUpdated": "2026-03-30T18:54:00-04:00",
+    "phases": [
+        {
+            "id": "P0",
+            "name": "Credential Foundation",
+            "status": "completed",
+            "timeline": "2025-2026 Q1",
+            "milestones": [
+                {
+                    "id": "P0-M1",
+                    "name": "ECE Credential Evaluation",
+                    "status": "completed",
+                    "cost": 315,
+                    "result": "3.43 GPA — Approved",
+                    "notes": "Course-by-course evaluation of Argentina/Panama dental degree"
+                }
+            ],
+            "totalCost": 315,
+            "totalSpent": 315
+        },
+        {
+            "id": "P1",
+            "name": "English Proficiency",
+            "status": "upcoming",
+            "timeline": "2026 Q2-Q3",
+            "milestones": [
+                {
+                    "id": "P1-M1",
+                    "name": "TOEFL iBT Preparation",
+                    "status": "not_started",
+                    "cost": 50,
+                    "breakdown": {
+                        "ETS Official Prep": 50,
+                        "Free Resources (YouTube/Khan)": 0
+                    },
+                    "duration": "2-3 months",
+                    "notes": "Use ETS TestReady platform + Official Guide"
+                },
+                {
+                    "id": "P1-M2",
+                    "name": "TOEFL iBT Exam",
+                    "status": "not_started",
+                    "cost": 245,
+                    "breakdown": {
+                        "Registration Fee": 245,
+                        "Additional Score Reports (4 free, $20/ea after)": 0
+                    },
+                    "targetScore": "100+",
+                    "notes": "Register at ets.org. Testing centers in Miami-Dade available."
+                }
+            ],
+            "totalCost": 295,
+            "totalSpent": 0
+        },
+        {
+            "id": "P2",
+            "name": "National Board Dental Exam",
+            "status": "upcoming",
+            "timeline": "2026 Q4 - 2027 Q2",
+            "milestones": [
+                {
+                    "id": "P2-M1",
+                    "name": "INBDE Study Materials",
+                    "status": "not_started",
+                    "cost": 660,
+                    "breakdown": {
+                        "Mental Dental ($30/mo x 6 months)": 180,
+                        "Bootcamp.com INBDE Course": 300,
+                        "First Aid for INBDE Book": 80,
+                        "Practice Exams / Q-Banks": 100
+                    },
+                    "duration": "4-6 months"
+                },
+                {
+                    "id": "P2-M2",
+                    "name": "DENTPIN Registration (ADA)",
+                    "status": "not_started",
+                    "cost": 0,
+                    "notes": "Free — required before INBDE registration"
+                },
+                {
+                    "id": "P2-M3",
+                    "name": "INBDE Exam Fee",
+                    "status": "not_started",
+                    "cost": 880,
+                    "notes": "Standard exam fee paid to ADA/JCNDE"
+                },
+                {
+                    "id": "P2-M4",
+                    "name": "INBDE International Processing Fee",
+                    "status": "not_started",
+                    "cost": 435,
+                    "notes": "Required for non-CODA-accredited program graduates"
+                }
+            ],
+            "totalCost": 1975,
+            "totalSpent": 0
+        },
+        {
+            "id": "P3",
+            "name": "Florida RDH Licensure",
+            "status": "upcoming",
+            "timeline": "2027 Q1-Q3",
+            "milestones": [
+                {
+                    "id": "P3-M1",
+                    "name": "FL Board Credentials Review Application",
+                    "status": "not_started",
+                    "cost": 100,
+                    "notes": "Application to FL Board of Dentistry for non-CODA graduates"
+                },
+                {
+                    "id": "P3-M2",
+                    "name": "FL Board Application Fee (RDH)",
+                    "status": "not_started",
+                    "cost": 80,
+                    "notes": "Initial licensure fee for dental hygienists"
+                },
+                {
+                    "id": "P3-M3",
+                    "name": "Fingerprint Background Screening",
+                    "status": "not_started",
+                    "cost": 43,
+                    "notes": "FDLE retention fee — electronic fingerprinting"
+                },
+                {
+                    "id": "P3-M4",
+                    "name": "ADEX Dental Hygiene Clinical Exam",
+                    "status": "not_started",
+                    "cost": 1300,
+                    "breakdown": {
+                        "SPTCE + CSCE/OSCE Full Exam": 1150,
+                        "Typodont Fee": 150
+                    },
+                    "notes": "Administered by CDCA-WREB-CITA. Includes one free retake."
+                },
+                {
+                    "id": "P3-M5",
+                    "name": "ADEX Facility Fee (varies by site)",
+                    "status": "not_started",
+                    "cost": 400,
+                    "notes": "Estimated — varies by exam location. Check adextesting.org."
+                },
+                {
+                    "id": "P3-M6",
+                    "name": "FL Laws & Rules Exam (Jurisprudence)",
+                    "status": "not_started",
+                    "cost": 65,
+                    "notes": "Florida-specific law exam for dental hygienists"
+                },
+                {
+                    "id": "P3-M7",
+                    "name": "CPR/BLS Certification (AHA)",
+                    "status": "not_started",
+                    "cost": 75,
+                    "notes": "American Heart Association BLS Provider — required for licensure"
+                },
+                {
+                    "id": "P3-M8",
+                    "name": "OSHA/Infection Control Training",
+                    "status": "not_started",
+                    "cost": 50,
+                    "notes": "Online certification — required for clinical employment"
+                }
+            ],
+            "totalCost": 2113,
+            "totalSpent": 0
+        },
+        {
+            "id": "P4",
+            "name": "Clinical Hours Accumulation",
+            "status": "upcoming",
+            "timeline": "2027 Q3 - 2028 Q4",
+            "milestones": [
+                {
+                    "id": "P4-M1",
+                    "name": "Begin RDH Employment (Weekdays)",
+                    "status": "not_started",
+                    "cost": 0,
+                    "income": "55000-70000",
+                    "notes": "Full-time RDH position — accumulate clinical hours + income"
+                },
+                {
+                    "id": "P4-M2",
+                    "name": "Weekend Volunteer Dentistry",
+                    "status": "not_started",
+                    "cost": 0,
+                    "notes": "Volunteer at community dental clinics — accumulate additional dental hours for school applications"
+                },
+                {
+                    "id": "P4-M3",
+                    "name": "TFA Analytics Part-Time (Evenings/Remote)",
+                    "status": "not_started",
+                    "cost": 0,
+                    "income": "28000-43000",
+                    "notes": "10-15 hrs/wk via Naeto S-Corp — maintain consulting income"
+                }
+            ],
+            "totalCost": 0,
+            "estimatedIncome": "83000-113000",
+            "totalSpent": 0
+        },
+        {
+            "id": "P5",
+            "name": "Dental School Application",
+            "status": "upcoming",
+            "timeline": "2028 Q3-Q4",
+            "milestones": [
+                {
+                    "id": "P5-M1",
+                    "name": "ADEA AADSAS Application (1st school)",
+                    "status": "not_started",
+                    "cost": 264,
+                    "notes": "Primary application service for U.S. dental schools"
+                },
+                {
+                    "id": "P5-M2",
+                    "name": "Additional School Applications (est. 3-5)",
+                    "status": "not_started",
+                    "cost": 460,
+                    "breakdown": {
+                        "4 additional schools @ $115 each": 460
+                    }
+                },
+                {
+                    "id": "P5-M3",
+                    "name": "Supplemental Application Fees",
+                    "status": "not_started",
+                    "cost": 500,
+                    "breakdown": {
+                        "5 schools @ ~$100 each": 500
+                    },
+                    "notes": "Paid directly to each dental school"
+                },
+                {
+                    "id": "P5-M4",
+                    "name": "Interview Travel (est. 2-3 schools)",
+                    "status": "not_started",
+                    "cost": 1500,
+                    "breakdown": {
+                        "Airfare + hotel for 3 interviews": 1500
+                    }
+                }
+            ],
+            "totalCost": 2724,
+            "totalSpent": 0
+        },
+        {
+            "id": "P6",
+            "name": "BU Advanced Standing DMD Program",
+            "status": "upcoming",
+            "timeline": "2029 Fall - 2031 Spring",
+            "milestones": [
+                {
+                    "id": "P6-M1",
+                    "name": "Year 1 Tuition",
+                    "status": "not_started",
+                    "cost": 99680,
+                    "notes": "BU Goldman School of Dental Medicine — 2025/26 rate (expect ~3-5% annual increase)"
+                },
+                {
+                    "id": "P6-M2",
+                    "name": "Year 1 Fees",
+                    "status": "not_started",
+                    "cost": 5771,
+                    "breakdown": {
+                        "Graduate Program Fee": 207,
+                        "Health & Wellness Fee": 564,
+                        "Technology Fee": 3000,
+                        "Preclinical Fee (Y1 only)": 2000
+                    }
+                },
+                {
+                    "id": "P6-M3",
+                    "name": "Year 1 Instruments",
+                    "status": "not_started",
+                    "cost": 17944,
+                    "notes": "Required instrument kit — first year only"
+                },
+                {
+                    "id": "P6-M4",
+                    "name": "Year 2 Tuition",
+                    "status": "not_started",
+                    "cost": 104664,
+                    "notes": "Estimated with ~5% increase from 2025/26 rate"
+                },
+                {
+                    "id": "P6-M5",
+                    "name": "Year 2 Fees",
+                    "status": "not_started",
+                    "cost": 6271,
+                    "breakdown": {
+                        "Graduate Program Fee": 207,
+                        "Health & Wellness Fee": 564,
+                        "Technology Fee": 3000,
+                        "Sterilization Fee (Y2 only)": 2500
+                    }
+                },
+                {
+                    "id": "P6-M6",
+                    "name": "Living Expenses (2 years, Boston)",
+                    "status": "not_started",
+                    "cost": 60000,
+                    "breakdown": {
+                        "Rent ($1,800/mo x 24)": 43200,
+                        "Food ($500/mo x 24)": 12000,
+                        "Transportation/Misc": 4800
+                    }
+                },
+                {
+                    "id": "P6-M7",
+                    "name": "Direct Loan Fees",
+                    "status": "not_started",
+                    "cost": 924,
+                    "breakdown": {
+                        "Loan origination fees (2 years)": 924
+                    }
+                }
+            ],
+            "totalCost": 295254,
+            "totalSpent": 0
+        }
+    ],
+    "costSummary": {
+        "alreadySpent": 315,
+        "preDentalSchoolCosts": 7107,
+        "dentalSchoolCosts": 295254,
+        "grandTotal": 302676,
+        "fundingSources": {
+            "Solo 401(k) Loan": 50000,
+            "Accumulated S-Corp Distributions (3 yrs)": 70000,
+            "Roth IRA Contributions (emergency)": 42000,
+            "Federal Direct Unsubsidized Loans": 81000,
+            "Part-time Naeto Income During School": 62000,
+            "Gap (Grad PLUS / Savings)": 0
+        }
+    }
+}
