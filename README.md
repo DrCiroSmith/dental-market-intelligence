@@ -1,17 +1,31 @@
 # Dental Market Intelligence (ROI Intel Pro)
 
-Advanced arbitrage engine identifying consolidation opportunities in the dental market. Refactored from a basic Streamlit app into a scalable React-Vite web application powered by Python/FastAPI data pipelines.
+Dental market analysis app with:
+- **Backend**: FastAPI service in `src/api/main.py`
+- **Frontend**: React + Vite app in `frontend/`
 
-## Value Prop
+## Prerequisites
 
-Allows investors/DSOs to find under-optimized clinics and map out real market NPI providers via distance/demographics to validate arbitrage purchases (e.g., buying for 3.5x EBITDA and rolling into a DSO for 12x EBITDA).
+- Python 3
+- Node.js + npm
 
-## Usage
+## Quick start (fresh clone)
+
+From the repository root:
 
 ```bash
 chmod +x run.sh
 ./run.sh
 ```
 
-Frontend: `http://localhost:5175`
-Backend: `http://localhost:8000`
+The startup script will:
+- create `./venv` if needed
+- install Python dependencies from `requirements.txt` if missing
+- install frontend dependencies from `frontend/package-lock.json` on first run
+- start backend and frontend development servers
+
+## Local URLs
+
+- Frontend: `http://localhost:5175`
+- Backend: `http://localhost:8000`
+- Health check: `http://localhost:8000/health`
